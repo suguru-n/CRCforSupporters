@@ -1,0 +1,28 @@
+{
+    "name": "Company reputation checker for supporters",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "サポーターズ内のオファー会社名をクリックすると https://www.openwork.jp/ を開き、自動検索する拡張機能",
+    
+    "permissions": [
+      "tabs",
+      "scripting" 
+    ],
+    "host_permissions": [
+      "https://talent.supporterz.jp/*",
+      "https://www.openwork.jp/*"
+    ],
+  
+    "background": {
+      "service_worker": "background.js"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["contentScript.js"],
+        "run_at": "document_idle"
+      }
+    ]
+  }
+  
